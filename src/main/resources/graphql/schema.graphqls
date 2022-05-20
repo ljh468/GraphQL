@@ -1,0 +1,35 @@
+schema{
+    query: Query,
+    mutation: Mutation
+}
+type Actor{
+    actorId:ID!,
+    firstName:String,
+    lastName:String,
+    dob:String,
+    address:String,
+    filmId:Int
+    film:Film # film도 가져올 수 있도록 정의
+}
+
+type Film{
+    filmId:ID!,
+    name:String,
+    regDt:String
+}
+
+type Query{
+    getAllActors:[Actor],
+    getActorById(id:Int):Actor
+}
+input AddressInput{
+    actorId:Int,
+    address:String
+}
+type Mutation{
+    # 매개변수 id는 int타입, adress는 문자열 타입
+    # 반환값은 Actor
+    updateAddress(id:Int, address:String):Actor,
+    # Input값을 정의하여 활용
+    updateAddressByInputObject(input:AddressInput):Actor
+}
