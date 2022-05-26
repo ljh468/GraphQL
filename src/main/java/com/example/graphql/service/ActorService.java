@@ -36,7 +36,7 @@ public class ActorService implements GraphQLQueryResolver, GraphQLMutationResolv
         actorRepository.save(actor);
         return actor;
     }
-    // 입력 개체를 얻을 수 있음
+    // 입력 객체를 얻을 수 있음
     @Transactional
     public Actor updateAddressByInputObject(AddressInput input){
         Actor actor =  actorRepository.findById(input.getActorId()).get();

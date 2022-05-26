@@ -1,5 +1,6 @@
 schema{
-    query: Query
+    query: Query,
+    mutation: Mutation
 }
 type Actor{
     actorId:ID!,
@@ -29,6 +30,6 @@ type Mutation{
     # 매개변수 id는 int타입, adress는 문자열 타입
     # 반환값은 Actor
     updateAddress(id:Int, address:String):Actor,
-    ##
+    # Input값을 정의하여 활용
     updateAddressByInputObject(input:AddressInput):Actor
 }
